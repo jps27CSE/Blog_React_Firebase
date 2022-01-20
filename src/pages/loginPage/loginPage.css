@@ -1,0 +1,13 @@
+.mainLogin {
+  min-height: 93vh;
+  display: flex;
+  align-items: center;
+  /* background-image: url("../../background.jpg"); */
+  background-position: center;
+  background-size: cover;
+  margin-left: 37%;
+}
+.intro-text {
+  width: 100%;
+  text-align: center;
+}

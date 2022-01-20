@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
+import LandingPage from "./pages/landingPage/landingPage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LoginPage from "./pages/loginPage/loginPage";
+import SignupPage from "./pages/SignupPage/SignupPage";
+import MainPage from "./pages/mainPage/MainPage";
+import FullBlogPage from "./pages/FullBlogPage/FullBlogPage";
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  const [isAuth, setIsAuth] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header isAuth={isAuth} />
+      <main>
+        <Routes>
+          <Route path="/" exact element={<LandingPage />} />
+          <Route path="/login" element={<LoginPage />} setIsAuth={setIsAuth} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/blog" element={<MainPage />} />
+          <Route path="/article/:id" element={<FullBlogPage />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
