@@ -37,13 +37,13 @@ const Header = ({ isAuth, setIsAuth }) => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/blog">Home</Nav.Link>
+              {storage && <Nav.Link href="/blog">Home</Nav.Link>}
               {storage ? (
                 <Nav.Link onClick={signUserOut}>Logout</Nav.Link>
               ) : (
                 <Nav.Link href="/login">Login</Nav.Link>
               )}
-              <NavDropdown title="Link" id="navbarScrollingDropdown">
+              {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
                   Another action
@@ -52,20 +52,20 @@ const Header = ({ isAuth, setIsAuth }) => {
                 <NavDropdown.Item href="#action5">
                   Something else here
                 </NavDropdown.Item>
-              </NavDropdown>
-              <Nav.Link href="#" disabled>
-                Link
-              </Nav.Link>
+              </NavDropdown> */}
+              {storage && <Nav.Link href="/create">Create Post</Nav.Link>}
             </Nav>
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="success">Search</Button>
-            </Form>
+            {storage && (
+              <Form className="d-flex">
+                <FormControl
+                  type="search"
+                  placeholder="Search"
+                  className="me-2"
+                  aria-label="Search"
+                />
+                <Button variant="success">Search</Button>
+              </Form>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>

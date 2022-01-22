@@ -8,6 +8,7 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import MainPage from "./pages/mainPage/MainPage";
 import FullBlogPage from "./pages/FullBlogPage/FullBlogPage";
 import { useState } from "react";
+import CreatePost from "./pages/CreatePost/CreatePost";
 
 const App = () => {
   const [isAuth, setIsAuth] = useState(false);
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} setIsAuth={setIsAuth} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/blog" element={<MainPage />} />
+          <Route path="/create" element={<CreatePost />} />
           <Route path="/article/:id" element={<FullBlogPage />} />
         </Routes>
       </main>
